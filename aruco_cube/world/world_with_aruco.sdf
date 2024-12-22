@@ -1,0 +1,152 @@
+<?xml version="1.0" ?>
+<sdf version="1.6">
+  <world name="default">
+
+    <!-- Define the ground plane -->
+    <model name="ground_plane">
+  <static>true</static>
+  <link name="link">
+    
+    <!-- Visual Element -->
+    <visual name="visual">
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>100 100</size>
+        </plane>
+      </geometry>
+      <material>
+        <diffuse>0 0 0 0.4</diffuse> 
+      </material>
+    </visual>
+
+    <!-- Collision Element -->
+    <collision name="collision">
+      <geometry>
+        <plane>
+          <normal>0 0 1</normal>
+          <size>100 100</size>
+        </plane>
+      </geometry>
+    </collision>
+    
+  </link>
+</model>
+    
+    <!-- Table Leg Model -->
+    <model name="table">
+    <static>true</static>
+      <link name="leg_fl_link">
+      <pose>-0.4 -0.2 0.3 0 0 0</pose> 
+        <visual name="fl_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+        
+      </link>
+
+      <link name="leg_rl_link">
+      <pose>0.4 -0.2 0.3 0 0 0</pose> 
+        <visual name="rl_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="leg_fr_link">
+      <pose>-0.4 0.2 0.3 0 0 0</pose> 
+        <visual name="fr_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="leg_rr_link">
+      <pose>0.4 0.2 0.3 0 0 0</pose> 
+        <visual name="rr_visual">
+          <geometry>
+            <cylinder>
+              <radius>0.02</radius>
+              <length>0.6</length>
+            </cylinder>
+          </geometry>
+          <material>
+            <diffuse>0 0 1 1</diffuse>
+          </material>
+        </visual>
+      </link>
+
+      <link name="table_top_link">
+      <pose>0 0 0.625 0 0 0</pose>
+        <visual name="table_top_visual">
+          <geometry>
+            <box>
+              <size>1 0.6 0.05</size>
+            </box>
+          </geometry>
+          <material>
+          </material>
+        </visual>
+        <collision name="collision">
+      <geometry>
+        <box>
+              <size>1 0.6 0.05</size>
+        </box>
+      </geometry>
+    </collision>
+      </link>
+    </model>
+
+    <!-- Cylinder with ArUco Marker -->
+    <model name='aruco_box'>
+  <pose>0 0 0.9 0 -0 3.1416</pose>
+  <link name='link'>
+    <collision name='collision'>
+      <geometry>
+        <!-- Change the collision geometry to match the visual mesh -->
+        <mesh>
+          <uri>file:///home/ishan/OpenDroids_ws/src/gazebo_aruco_box/aruco_box/model.dae</uri>
+          <scale>0.25 0.25 0.25</scale>
+        </mesh>
+      </geometry>
+    </collision>
+
+    <!-- Visual -->
+    <visual name='aruco_box_mesh'>
+      <geometry>
+        <mesh>
+          <uri>file:///home/ishan/OpenDroids_ws/src/gazebo_aruco_box/aruco_box/model.dae</uri>
+          <scale>0.25 0.25 0.25</scale>
+        </mesh>
+      </geometry>
+    </visual>
+
+    <self_collide>0</self_collide>
+    <enable_wind>0</enable_wind>
+    <kinematic>0</kinematic>
+  </link>
+</model>
+
+  </world>
+</sdf>
