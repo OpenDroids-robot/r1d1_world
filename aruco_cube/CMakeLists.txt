@@ -13,15 +13,16 @@ find_package(ament_cmake REQUIRED)
 
 find_package(rclpy REQUIRED)
 install(PROGRAMS
-  src/aruco_generator.py
+  src/create_marker_tile_image.py
   DESTINATION lib/${PROJECT_NAME}
 )
 install(DIRECTORY
-  launch
+  world
   DESTINATION share/${PROJECT_NAME}
 )
+
 install(DIRECTORY
-  world
+  launch
   DESTINATION share/${PROJECT_NAME}
 )
 

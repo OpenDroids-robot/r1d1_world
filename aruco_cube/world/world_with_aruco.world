@@ -25,7 +25,6 @@
             </plane>
           </geometry>
         </collision>
-
       </link>
     </model>
 
